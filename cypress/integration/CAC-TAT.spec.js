@@ -57,7 +57,7 @@ describe('Central de Atendimento ao cliente TAT', function() {
   })
 
   //Exercicio 04
-  it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', function() {
+  it.only('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', function() {
     cy.get('#firstName')
       .type('Igor')
 
@@ -71,7 +71,8 @@ describe('Central de Atendimento ao cliente TAT', function() {
     //   .type('')
     
     cy.get('#phone-checkbox') // Marca o campo telefone como obrigatório
-      .click()
+      // .click()
+      .check()
 
     cy.get('#open-text-area')
       .type('Testando o meu Cypress')
