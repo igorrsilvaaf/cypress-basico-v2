@@ -1,23 +1,18 @@
 ///<reference types="Cypress" />
 
-describe('Upload de arquivos', () => {
+describe('Marcando e desmarcando inputs checkbox', () => {
     beforeEach(() => {
         cy.visit('./src/index.html')
     });
 
-    it('Seleciona anexo', () => {
-        cy.get('#file-upload[type="file"]')
-            .selectFile('cypress/fixtures/example.json')
-            .should(($input) => {
-                expect($input[0].files[0].name).to.equal('example.json')
-            })
-    });
+    it('marca ambos checkboxes, depois desmarca o último', () => {
 
-    it('Seleciona um arquivo usando drag-and-drop', () => {
-        cy.get('#file-upload[type="file"]')
-            .selectFile('cypress/fixtures/example.json', {action: "drag-drop"})
-            .should(($input) => {
-                expect($input[0].files[0].name).to.equal('example.json')
-            })
-    });
+        // Marca todos os checks e desmarca apenas o ultimo
+        cy.get('input[type="checkbox"]')
+          .check()
+          .should('be.checked')
+          .last()
+          .uncheck()
+          .should('not.be.checked') // Verifica que esta desmarcado
+      });
 });
