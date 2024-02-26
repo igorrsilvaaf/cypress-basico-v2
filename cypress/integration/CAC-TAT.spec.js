@@ -2,8 +2,10 @@
 
 describe('Central de Atendimento ao cliente TAT', function() {
   beforeEach(function() { // Roda antes de qualquer coisa
+    cy.viewport('iphone-xr')
     cy.visit('./src/index.html')
   })
+
   it('verifica o titulo da aplicação', function() {
     cy.title().should('be.equal', 'Central de Atendimento ao Cliente TAT')
   })
