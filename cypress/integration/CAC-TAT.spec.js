@@ -23,7 +23,7 @@ describe('Central de Atendimento ao cliente TAT', function() {
 
     cy.get('#email')
       .type('igorrsilvaa920@gmail.com')
-    
+
     cy.get('#phone')
       .type('48991196884')
 
@@ -34,9 +34,9 @@ describe('Central de Atendimento ao cliente TAT', function() {
 
     cy.get('.button[type="submit"]')
       .click()
-    
+
     cy.get('.success')
-      .should('be.visible') // Verifica se o elemento esta visivel 
+      .should('be.visible') // Verifica se o elemento esta visivel
   })
 
   // Exercicio 02
@@ -46,13 +46,13 @@ describe('Central de Atendimento ao cliente TAT', function() {
 
     cy.get('.button[type="submit"]')
       .click()
-    
+
     cy.get('.error')
       .should('be.visible')
   })
 
   //Exercicio 03
-  it('Valida numero de telefone para aceitar apenas valores numericos', function() {    
+  it('Valida numero de telefone para aceitar apenas valores numericos', function() {
     cy.get('#phone')
       .type('abc')
       .should('have.value', '')
@@ -68,10 +68,10 @@ describe('Central de Atendimento ao cliente TAT', function() {
 
     cy.get('#email')
       .type('igorrsilvaa920@gmail.com')
-  
+
     // cy.get('#phone') // Linha comentada para que seja possivel simular o erro
     //   .type('')
-    
+
     cy.get('#phone-checkbox') // Marca o campo telefone como obrigatório
       // .click()
       .check()
@@ -81,7 +81,7 @@ describe('Central de Atendimento ao cliente TAT', function() {
 
     cy.get('.button[type="submit"]')
       .click()
-  
+
     cy.get('.error')
       .should('be.visible')
   })
@@ -111,7 +111,7 @@ describe('Central de Atendimento ao cliente TAT', function() {
     .should('have.value', '48991196884')
     .clear()
     .should('have.value', '')
-  
+
   cy.get('#open-text-area')
     .type('Olá mundo')
     .should('have.value', 'Olá mundo')
@@ -123,7 +123,7 @@ describe('Central de Atendimento ao cliente TAT', function() {
   it('Exibe mensagem de erro ao preencher formulario sem ter preenchido os campos obrigatórios', () => {
     cy.get('.button[type="submit"]')
       .click()
-      
+
     cy.get('.error')
       .should('be.visible')
   });
